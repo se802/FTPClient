@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.apache.commons.net.ftp.FTPClient;
 
 public class MyFTPUpload {
+
     public static void main(String[] args) throws IOException {
         String server = args[1];
         int port = 21;

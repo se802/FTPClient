@@ -126,7 +126,7 @@ public class FtpAnalyze {
         int port = 21;
         String user = "ftpadmin";
         String pass = "csdeptucy";
-        String option="show-urls";
+        String option=args[0];
         FTPClient ftpClient = new FTPClient();
 
         try {
@@ -142,13 +142,13 @@ public class FtpAnalyze {
             }
 
             if(option.equals("show-file")){
-                String file="/home/ftpadmin/html/task.html";
+                String file=args[1];
                 String x= readFiles(ftpClient,file);
                 System.out.println(x);
             }
             if(option.equals("find-string")){
-                String stringToFind="line";
-                String file="exercises/RightTriangle.java";
+                String stringToFind=args[2];
+                String file=args[1];
                 String content = readFiles(ftpClient,file);
                 String []temp=content.split("\n");
                 for (String x:temp){
@@ -159,17 +159,15 @@ public class FtpAnalyze {
             if(option.equals("show-dir-R")){
 
 
-                String dirToList = "";
+                String dirToList = args[1];
 
                 if(dirToList.equals(""))
                     dirToList="/home/ftpadmin";
                 listDirectory(ftpClient, dirToList, "", 0);
             }
             if(option.equals("show-urls")){
-                String dirToList = "";
 
-                if(dirToList.equals(""))
-                    dirToList="/home/ftpadmin";
+                String dirToList="/home/ftpadmin";
                 listDirectory(ftpClient, dirToList, "", 0,true);
             }
 
