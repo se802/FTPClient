@@ -161,7 +161,7 @@ public class FtpAnalyze {
 
                 String dirToList = args[1];
 
-                if(dirToList.equals(""))
+                if(dirToList.equals("/"))
                     dirToList="/home/ftpadmin";
                 listDirectory(ftpClient, dirToList, "", 0);
             }
